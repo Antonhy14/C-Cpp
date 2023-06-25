@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+#define ull unsigned long long
+#define ll long long
+#define nl cout<< "\n"
+#define sp(x,n) fixed << setprecision(x) << n
+#define all(x) x.begin(),x.end()
+using namespace std;
+int binarySearch(int x,int arr[],int size);
+// Funcion para hacer una busqueda binaria, si lo encuentra devuelve el indice, sino -1.
+/* 
+	La busqueda binaria se hace dividiendo a la mitad el arreglo, asi se reduce el rango de posibilidades hasta
+	llegar a un resultado, ya sea haber encontrado el elemento, o no.
+	Esta es una manera mas eficiente de realizar busquedas, a comparacion con una busqueda lineal(que compara cada elemento).
+	Ya que en el peor de los casos hara la potencia de dos mas cercana a lc cantidad de elementos, por ejemplo:
+		size = 32
+		2^5 = 32
+		Aqui el peor de los casos es que haga 5 comparaciones, en cambio con una lineal podria ser que comparara las 32.
+		 
+*/
+int main() {
+	cin.tie(0);
+	ios_base::sync_with_stdio(0);
+	
+	return 0;
+}
+int binarySearch(int x,int arr[],int size) {
+	int min=0,max=size-1;
+	while(min<=max) {
+		int guess=min+max/2;
+		if(arr[guess]==x) return guess;
+		else if(arr[guess]>x) max--;
+		else if(arr[guess]<x) min++;
+	} 
+	return -1;
+}
