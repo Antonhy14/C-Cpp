@@ -22,16 +22,17 @@ int main() {
 	ios_base::sync_with_stdio(0);
 	vector<int> v = {1,6,8,9,2,3,0,5}; 
 	sort(all(v)); // 0 1 2 3 5 6 8 9
-				  // 0 1 2 3 4 5 6 7 
-	int n; cin >> n;
-	int x = binarySearch(n,v,v.size());
+		      // 0 1 2 3 4 5 6 7 
+	int n; 
+	cin >> n;
+	int x = binarySearch(n,v);
 	cout << x;
 	return 0;
 }
-int binarySearch(int x,vector<int> arr,int size) {
-	int i=0,d=size-1;
+int binarySearch(int x,vector<int> v) {
+	int i=0,d=v.size()-1;
 	while(i<=d) {
-		int m=i+(d-1)/2;
+		int m=(l+r)/2;
 		if(arr[m]==x) return m; // si la busqueda binaria se hace en el main hay que terminar el bucle con un break, poniendo cualquier condicion en el while.
 		else if(arr[m]>x) d = m-1;
 		else if(arr[m]<x) i = m+1;
