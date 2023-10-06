@@ -14,19 +14,18 @@ using namespace std;
     'a' = 97 'z' = 122
     '0' = 48 '9' = 57
 */
+int mcd(int a, int b) {
+    if(b==0) return a;  // Si mcd(a,0) finaliza y devuelve el mcd, si no hay pues 1
+    return mcd(b,a%b); // Si b!=0 entonces llama la funcion otra vez con a=b y b=a%b
+}
 int main(){
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     
     int a,b;
     cin >> a >> b;
-    
-    while(b!=0) { // Si mcd(a,0) finaliza
-        int aux = a; // si no entonces vamos a hacer la operacion otra vez con a=b y b=a%b
-        a=b;
-        b=aux%b;
-    }
-    cout << a;
+    int x = mcd(a,b);
+    cout << x; // el mcd
     
     return 0;
 }
